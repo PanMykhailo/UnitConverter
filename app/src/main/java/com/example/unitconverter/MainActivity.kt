@@ -20,13 +20,16 @@ class MainActivity : AppCompatActivity() {
         val restext = findViewById<TextView>(R.id.res_text)
 
         btn.setOnClickListener(){
-        val kilos: Double = edt.text.toString().toDouble()
-            restext.setText(""+ convertToPounds(kilos))
+        val kilos: Double = edt.text.toString().toDoubleOrNull() ?: run{
+            restext.text = "You can type only numbers"
+            return@setOnClickListener
+        }
+            restext.setText("\t"+ convertToPounds(kilos) + "\nPounds")
         }
 
     }
     fun convertToPounds(kilos: Double): Double{
-        var pound = kilos * 2.2
+        var pound = kilos * 2.204
         return pound
     }
 }
