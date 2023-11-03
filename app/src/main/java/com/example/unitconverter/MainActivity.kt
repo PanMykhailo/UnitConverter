@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        
+        // Declaring buttons
         val edt = findViewById<EditText>(R.id.kilo_edt)
         val btn = findViewById<Button>(R.id.convbtn)
         val restext = findViewById<TextView>(R.id.res_text)
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    // Creating a function that will make a convertation
     fun convertToPounds(kilos: Double): Double{
         var pound = kilos * 2.204
         return pound
